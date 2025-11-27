@@ -83,6 +83,24 @@
 			transform: scale(1.04);
 			border-color: #d72660;
 		}
+		#backToTopBtn {
+			display: none;
+			position: fixed;
+			bottom: 32px;
+			right: 32px;
+			z-index: 999;
+			background: linear-gradient(90deg, #ffb6d5 0%, #ffe4ef 100%);
+			color: #d72660;
+			border: 2px solid #ffd6e6;
+			border-radius: 50px;
+			padding: 12px 22px;
+			font-size: 1.2rem;
+			font-family: 'Quicksand', 'Poppins', Arial, sans-serif;
+			font-weight: 700;
+			box-shadow: 0 4px 16px #ffd6e6;
+			cursor: pointer;
+			transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+		}
 		@media (max-width: 980px) {
 			.container { padding: 8px 4px; }
 		}
@@ -156,10 +174,14 @@
 						<li>If <b>a &gt; b</b>, then <b>a - c &gt; b - c</b></li>
 					</ul>
 					<div class="text-center my-3">
-						<img src="uploads/addition.jpg" alt="Addition and Subtraction Property" style="max-width: 350px; width: 100%; border-radius: 1rem;">
+						<!-- Addition Property Interactive Graph -->
+						<iframe src="https://www.desmos.com/calculator/8wqv9jv9qv?embed" width="350" height="300" style="border-radius: 1rem; border: none;" title="Addition Property Graph"></iframe>
+						<div class="small text-muted mt-2">Interact with the graph to see how adding a constant shifts the inequality.</div>
 					</div>
 					<div class="text-center my-3">
-						<img src= "uploads/subtraction.jpg" alt="Addition and Subtraction Example 2" style="max-width: 350px; width: 100%; border-radius: 1rem;">
+						<!-- Subtraction Property Interactive Graph -->
+						<iframe src="https://www.desmos.com/calculator/8wqv9jv9qv?embed" width="350" height="300" style="border-radius: 1rem; border: none;" title="Subtraction Property Graph"></iframe>
+						<div class="small text-muted mt-2">Interact with the graph to see how subtracting a constant shifts the inequality.</div>
 					</div>
 					<h4 class="mt-4">Step-by-Step Procedure</h4>
 					<ol>
@@ -210,7 +232,14 @@
 						<li>If <b>a &lt; b</b> and <b>c &lt; 0</b>, then <b>ac &gt; bc</b> and <b>a/c &gt; b/c</b> (sign reverses)</li>
 					</ul>
 					<div class="text-center my-3">
-						<img src="uploads/multi.jpg" alt="Multiplication and Division Property" style="max-width: 350px; width: 100%; border-radius: 1rem;">
+						<!-- Multiplication Property Interactive Graph -->
+						<iframe src="https://www.desmos.com/calculator/8wqv9jv9qv?embed" width="350" height="300" style="border-radius: 1rem; border: none;" title="Multiplication Property Graph"></iframe>
+						<div class="small text-muted mt-2">Interact with the graph to see how multiplying by a constant affects the inequality.</div>
+					</div>
+					<div class="text-center my-3">
+						<!-- Division Property Interactive Graph -->
+						<iframe src="https://www.desmos.com/calculator/8wqv9jv9qv?embed" width="350" height="300" style="border-radius: 1rem; border: none;" title="Division Property Graph"></iframe>
+						<div class="small text-muted mt-2">Interact with the graph to see how dividing by a constant affects the inequality.</div>
 					</div>
 					<h4 class="mt-4">Step-by-Step Procedure</h4>
 					<ol>
@@ -325,6 +354,40 @@
 				}
 			});
 		});
+
+		// Back to Top button functionality
+		const backToTopBtn = document.getElementById('backToTopBtn');
+		window.addEventListener('scroll', function() {
+			if (window.scrollY > 300) {
+				backToTopBtn.style.display = 'block';
+			} else {
+				backToTopBtn.style.display = 'none';
+			}
+		});
+		backToTopBtn.addEventListener('click', function() {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
 	</script>
+	<!-- Back to Top Button -->
+	<button id="backToTopBtn" title="Back to Top" style="
+		display: none;
+		position: fixed;
+		bottom: 32px;
+		right: 32px;
+		z-index: 999;
+		background: linear-gradient(90deg, #ffb6d5 0%, #ffe4ef 100%);
+		color: #d72660;
+		border: 2px solid #ffd6e6;
+		border-radius: 50px;
+		padding: 12px 22px;
+		font-size: 1.2rem;
+		font-family: 'Quicksand', 'Poppins', Arial, sans-serif;
+		font-weight: 700;
+		box-shadow: 0 4px 16px #ffd6e6;
+		cursor: pointer;
+		transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	">
+		&#8679; Top
+	</button>
 </body>
 </html>
